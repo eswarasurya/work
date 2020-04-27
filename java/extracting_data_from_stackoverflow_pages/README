@@ -1,1 +1,3 @@
-
+This JAVA code extracts data from downloaded stack overflow pages.
+It creates an object for each question and stores data releated to that question such as question, user, answer etc.
+The code doesnot use any inbulid library and does only by string manipulations.
