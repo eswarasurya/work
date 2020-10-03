@@ -1,0 +1,56 @@
+Abstract:
+  Training and classification of IRIS dataset using  Bayes and Naive Bayes Classifier. Dividing the dataset in 3:1 ratio as a training and test set. 
+  Both the classifiers achieved a 100% accuracy in classifying the test set. And ~97%, ~95% in training set for Bayes and Naive Bayes classifiers respectively.
+
+Data Set:
+  The dataset used for classification is  IRIS dataset, which is divided into a training set (75%) and testing set (25%).
+  The data is of equal priors. So the probability of each class is 1 / 3 as it is a three-class classification problem.
+  There are four features in the dataset, based on which we are going to make predictions.
+
+Bayes Classifier
+  First, we loaded training data into a list then we found out the class labels and the total number of classes.
+  The prior probability will be (1 / number of classes) in this case (1 / 3) as data is of equal priors
+  We found the mean vector  and covariance matrix  of each class separately in the training set.
+  For any given feature vector the following steps are repeated.
+
+    Finding the conditional probability p(x/wi)  of each class using the mean vector  and covariance matrix  by using the formula below.
+    p(x) = 1/((2Π)^(d/2)|Σ|^(1/2))*exp[-½*(x-μ)t|Σ|-1(x-μ)]
+
+    Using the conditional probability p(x/wi) to find the posterior probability p(wi/x) of each class using the below formula. 
+    p(wi/x ) = p(x/wi) * p(wi)p(x)
+
+    Classifying the feature vector into one of the classes based on the posterior probability p(wi/x) (Assigning to the class which has maximum posterior probability) 
+    	
+We followed the above process for all the training and test examples and calculated the accuracy.
+
+Result:
+  Training set accuracy: 97.321%
+  Testing set accuracy: 100%
+  
+Naive Bayes Classifier
+This classifier assumes that all the features are independent.
+
+First, we loaded training data into a list then we found out the class labels and the total number of classes.
+The prior probability will be (1 / number of class) in this case (1 / 3) as data is of equal priors
+For each class, we calculated the parameters mean () and variance (2) for all the four features in the training set.
+For any given training example the following steps will be repeated. 
+
+  Finding class conditional probability p(x/wi) of each feature of all classes using mean and variance and multiplying them to get the overall class conditional probability of a class.
+
+     p(x) = 1/((2*pi)^(1/2) * sigma)*exp[-½*(x-μ)^2]
+
+  Using class conditional probability p(x/wi) to find posterior probability p(wi/x) of each class by using the below formula.
+   p(wi/x ) = p(x/wi) * p(wi)p(x)
+
+  Classifying the given features into one of the classes based on the posterior probability p(wi/x) (Assigning to the class which has maximum posterior probability) 
+
+We followed the above process for all the training and test examples and calculated the accuracy.
+
+Result:
+Training set accuracy: 95.535%
+Testing set accuracy: 100%
+
+
+Observations:
+The Bayes classifier and Naive Bayes classifier predictions are accurate for the given dataset.
+The Bayes classifier accuracy is higher than the Naive Bayes classifier.
