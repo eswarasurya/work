@@ -1,0 +1,34 @@
+The code creates an Inverted index for the given text documents. 
+It demonstrates the creation of an inverted index using both a Trie data structure and hash map.
+
+
+Using python dictionary(hash map):
+The keys of the dictionary are words and the value of the word is posting list.
+For a given word, we first check whether the word is present in the dictionary. If present we update the posting list. Otherwise, we add the word to the key of the dictionary and its value as the posting list.
+
+The updating of the posting list is as follows:
+We check whether the given document id already exists by using binary search. If present we update the frequency by one. Otherwise, we insert the document id to the list so that the list remains sorted.
+
+Time Complexity:
+Creating inverted index: O(D * N * log m)	D - number of documents, N - words per document and m - number of entries in the posting list
+Inserting a word: O(log m)	m is the number of elements in the posting list
+Retrieving posting list: O(1)
+
+Space Complexity:
+O(D * N)	D - number of documents and N - number of words per document
+
+Using Trie:
+For a given word, we add the word to the trie and the posting list will be at the end of the word.
+Updation of the posting list is same as above.
+
+Time Complexity:
+creating inverted index: O(D * N * (log n + m))	D - number of documents, N - number of words per document, n - number of entries in the posting list and m - lenght of the given word.
+Inserting a word: O(m + log n)	m is the number of characters in the given word and n is the number of elements in the list.
+Retrieving posting list: O(m)	m is the number of characters in the given word.
+
+Space Complexity:
+O(D * N)	D - number of documents and N - number of words per document
+
+
+The code implements an inverted index in both Trie and hashmap.
+The folder containing data(th-dataset) should be in the same folder as the code file.
